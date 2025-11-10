@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIGODE AUTOPEÇAS - E-commerce de Alta Performance</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <header class="main-header">
+        <div class="top-bar">
+            <nav class="top-nav">
+                <a href="index.html">Home</a>
+                <a href="produtos.html">Produtos</a>
+                <a href="index.html">Quem Somos</a>
+            </nav>
+            <div class="user-actions">
+                <a href="login.html"><i class="fas fa-user-circle"></i></a>
+            </div>
+        </div>
+
+        <div class="main-content-row">
+            <div class="search-and-nav-container">
+                <div class="search-area">
+                    <div class="logo-search">
+                        <img src="../bigodeAutoPeca/src/img/logobranco.png" alt="BIGODE"> 
+                    </div>
+
+
+                    <div class="search-box">
+                        <input type="text" placeholder="Buscar">
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="highlight-categories">
+            <div class="categoria-container">
+                <div class="categoria-track">
+                    <div class="category-card" style="background-image: url('../bigodeAutoPeca/src/img/motor.png');">
+                        <h2>MOTOR</h2>
+                        <a href="produtos.html" class="btn-card">Veja mais</a>
+                    </div>
+                    <div class="category-card" style="background-image: url('../bigodeAutoPeca/src/img/freio.png');">
+                        <h2>FREIO</h2>
+                        <a href="produtos.html" class="btn-card">Veja mais</a>
+                    </div>
+                    <div class="category-card" style="background-image: url('../bigodeAutoPeca/src/img/farol.png');">
+                        <h2>ILUMINAÇÃO</h2>
+                        <a href="produtos.html" class="btn-card">Veja mais</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-products">
+            <h2>Produtos em Destaque</h2>
+            <div class="products-grid">
+                
+                <div class="product-card" data-product-id="T300-HP-01">
+                    <a href="detalhe-produto.html" class="product-link-wrapper">
+                    <div class="product-image-box">
+                        <img src="../bigodeAutoPeca/src/img/turbo.png" alt="Turbo Compressor T300">
+                    </div>
+                    <h3>Turbo Compressor T300 Alta performance</h3>
+                    <p class="price">R$ 3.890,00</p></a>
+                    <a href="#" class="btn-buy">Comprar</a>
+                </div>
+
+                <div class="product-card" data-product-id="PA-CE-04">
+                    <a href="detalhe-produto.html" class="product-link-wrapper">
+                    <div class="product-image-box">
+                        <img src="../bigodeAutoPeca/src/img/pastilha.png" alt="Pastilha de Freio Alta performance">
+                    </div>
+                    <h3>Pastilha de Freio Alta performace</h3>
+                    <p class="price">R$ 450,90</p></a>
+                    <a href="#" class="btn-buy">Comprar</a>
+                </div>
+
+                <div class="product-card" data-product-id="AM-ES-ADJ">
+                    <a href="detalhe-produto.html" class="product-link-wrapper">
+                    <div class="product-image-box">
+                        <img src="../bigodeAutoPeca/src/img/amortecedor.png" alt="Amortecedor Esportivo Ajustável">
+                    </div>
+                    <h3>Amortecedor Esportivo Ajustável</h3>
+                    <p class="price">R$ 980,00</p></a>
+                    <a href="#" class="btn-buy">Comprar</a>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="about-us">
+            <div class="about-us-content">
+                <div class="store-image">
+                    <img src="../bigodeAutoPeca/src/img/faixada.png" alt="Fachada da loja Bigode Autopeças">
+                </div>
+                <div class="store-text">
+                    <h2>Quem Somos</h2>
+                    <p class="slogan">**Paixão por carros, excelência em peças.**</p>
+                    <p>Nós da BIGODE Autopeças nascemos da mesma paixão que move você: a paixão por carros. Não somos apenas uma loja; somos entusiastas que entendem o ronco do motor e a busca incessante por performance.</p>
+                    <p>Nossa missão é fornecer autopeças de alta qualidade — do motor à suspensão — com a confiança e o conhecimento técnico que o seu projeto exige. Acreditamos que cada carro merece o melhor, seja para o dia a dia, para o *track day* ou para um projeto de restauração.</p>
+                    <p>Com a **BIGODE**, você não apenas compra peças, você investe na performance e na história do seu veículo.</p>
+                    <p>Seu carro em boas mãos começa aqui.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="social-media">
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p>Desenvolvido por BigTech © 2025</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

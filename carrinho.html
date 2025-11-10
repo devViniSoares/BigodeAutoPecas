@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Carrinho - BIGODE AUTOPEÇAS</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <header class="main-header">
+        <div class="top-bar">
+            <nav class="top-nav">
+                <a href="index.html">Home</a>
+                <a href="produtos.html">Produtos</a>
+                <a href="#">Quem Somos</a>
+            </nav>
+            <div class="user-actions">
+                <a href="login.html"><i class="fas fa-user-circle"></i></a>
+            </div>
+        </div>
+
+        <div class="main-content-row">
+            <div class="search-and-nav-container">
+                <div class="search-area">
+                    <div class="logo-search">
+                        <img src="../bigodeAutoPeca/src/img/logobranco.png" alt="BIGODE"> 
+                    </div>
+                    <div class="search-box">
+                        <input type="text" placeholder="Buscar">
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="cart-page-main">
+        <div class="page-title-bar">
+            <h1>MEU CARRINHO</h1>
+        </div>
+
+        <div class="cart-container">
+            
+            <section class="cart-items-section">
+                
+                <div class="cart-table-header">
+                    <span class="header-product">Produto</span>
+                    <span class="header-qtd">Qtd.</span>
+                    <span class="header-price">Preço Unit.</span>
+                    <span class="header-total">Total</span>
+                </div>
+
+                <a href="produtos.html" class="btn-continue-shopping"><i class="fas fa-arrow-left"></i> Continuar Comprando</a>
+
+            </section>
+            
+            <aside class="cart-summary">
+                <h2>Resumo do Pedido</h2>
+                
+                <div class="summary-line">
+                    <span>Subtotal:</span>
+                    <span class="summary-value">R$ 0,00</span>
+                </div>
+                
+                <div class="summary-shipping">
+                    <h3>Calcular Frete</h3>
+                    <div class="shipping-input">
+                        <input type="text" placeholder="CEP">
+                        <button class="btn-calculate-shipping"><i class="fas fa-truck-moving"></i></button>
+                    </div>
+                    <p class="shipping-cost">Frete: <span class="summary-value">R$ 0,00</span></p>
+                </div>
+                
+                <div class="summary-total-final">
+                    <span>Total Final:</span>
+                    <span class="final-price">R$ 0,00</span>
+                </div>
+                
+                <a href="pagamento.html" class="btn-checkout">
+                    FINALIZAR COMPRA <i class="fas fa-credit-card"></i>
+                </a>
+
+                <div class="secure-info">
+                    <i class="fas fa-lock"></i> Pagamento Seguro
+                </div>
+            </aside>
+            
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="social-media">
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p>Desenvolvido por BigTech © 2025</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

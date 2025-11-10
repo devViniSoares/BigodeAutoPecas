@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Produto - BIGODE AUTOPEÇAS</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <header class="main-header">
+        <div class="top-bar">
+            <nav class="top-nav">
+                <a href="index.html">Home</a>
+                <a href="produtos.html">Produtos</a>
+                <a href="#">Quem Somos</a>
+            </nav>
+            <div class="user-actions">
+                <a href="login.html"><i class="fas fa-user-circle"></i></a>
+            </div>
+        </div>
+
+        <div class="main-content-row">
+            <div class="search-and-nav-container">
+                <div class="search-area">
+                    <div class="logo-search">
+                        <img src="../bigodeAutoPeca/src/img/logobranco.png" alt="BIGODE"> 
+                    </div>
+                    <div class="search-box">
+                        <input type="text" placeholder="Buscar">
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="product-detail-page">
+        <div class="breadcrumbs">
+            <a href="index.html">Home</a> > 
+            <a href="produtos.html">Produtos</a> > 
+            <span id="breadcrumb-product-name">Nome do Produto</span> </div>
+
+        <div class="detail-container">
+            
+            <div class="image-gallery">
+                <div class="main-image-box">
+                    <img id="product-main-image" src="" alt="Imagem Principal do Produto"> </div>
+                <div class="thumbnails" id="product-thumbnails">
+                    </div>
+            </div>
+            
+            <div class="product-info" data-product-id=""> <h1 id="product-title">Nome do Produto</h1> <p class="product-sku">Ref: <span id="product-sku"></span> | Marca: <span id="product-brand">ForjadoParts</span></p>
+                
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <span>(120 Avaliações)</span>
+                </div>
+                
+                <p class="detail-price">
+                    <span class="currency">R$</span> 
+                    <span id="product-price" class="value">0,00</span> </p>
+                
+                <p class="payment-info">Em até **12x de <span id="product-installment-price">R$ 0,00</span>** sem juros no cartão.</p>
+
+                <div class="quantity-selector">
+                    <label for="quantidade">Quantidade:</label>
+                    <input type="number" id="quantidade" value="1" min="1" max="10">
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn-add-to-cart">
+                        <i class="fas fa-shopping-cart"></i> ADICIONAR AO CARRINHO
+                    </button>
+                    <button class="btn-buy-now">
+                        COMPRAR AGORA
+                    </button>
+                </div>
+
+                <div class="shipping-info">
+                    <h3><i class="fas fa-shipping-fast"></i> Calcule o Frete</h3>
+                    <input type="text" placeholder="Digite seu CEP">
+                    <button class="btn-calculate-shipping">Calcular</button>
+                    <p class="shipping-time">Entrega estimada: 5-7 dias úteis.</p>
+                </div>
+            </div>
+        </div>
+
+        <section class="detail-description-specs">
+            <h2>Descrição e Especificações Técnicas</h2>
+            
+            <div class="tabs">
+                <button class="tab-button active" data-tab="descricao">Descrição</button>
+                <button class="tab-button" data-tab="especificacoes">Especificações</button>
+                <button class="tab-button" data-tab="compatibilidade">Compatibilidade</button>
+            </div>
+
+            <div id="descricao" class="tab-content active">
+                <p id="product-description">Descrição do produto será carregada aqui.</p>
+            </div>
+
+            <div id="especificacoes" class="tab-content">
+                <table class="specs-table" id="product-specs-table">
+                    </table>
+            </div>
+            
+            <div id="compatibilidade" class="tab-content">
+                <p id="product-compatibility">Compatibilidade do produto será carregada aqui.</p>
+            </div>
+            
+        </section>
+        
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="social-media">
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p>Desenvolvido por BigTech © 2025</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', () => {
+                document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+                
+                button.classList.add('active');
+                document.getElementById(button.dataset.tab).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

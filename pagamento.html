@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - BIGODE AUTOPEÇAS</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <header class="main-header checkout-header">
+        <div class="main-content-row">
+            <div class="checkout-logo">
+                <a href="index.html">
+                    <img src="../bigodeAutoPeca/src/img/logobranco.png" alt="BIGODE"> 
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="checkout-page-main">
+        <div class="page-title-bar">
+            <h1>FINALIZAR COMPRA</h1>
+        </div>
+
+        <div class="checkout-container">
+            
+            <section class="checkout-form-area">
+                
+                <div class="checkout-step">
+                    <h2><i class="fas fa-map-marker-alt"></i> 1. Endereço de Entrega</h2>
+                    <form class="address-form">
+                        <div class="form-row">
+                            <input type="text" placeholder="CEP" required>
+                            <input type="text" placeholder="Rua / Avenida" required class="full-width">
+                        </div>
+                        <div class="form-row">
+                            <input type="text" placeholder="Número" required>
+                            <input type="text" placeholder="Complemento (Opcional)">
+                        </div>
+                        <div class="form-row">
+                            <input type="text" placeholder="Bairro" required>
+                            <input type="text" placeholder="Cidade" required>
+                        </div>
+                        <input type="text" placeholder="Estado (UF)" required>
+                    </form>
+                </div>
+                
+                <div class="checkout-step payment-step">
+                    <h2><i class="fas fa-credit-card"></i> 2. Método de Pagamento</h2>
+                    
+                    <div class="payment-options">
+                        <label class="payment-option active-option">
+                            <input type="radio" name="payment-method" value="credit-card" checked> Cartão de Crédito
+                            <i class="fas fa-check-circle"></i>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment-method" value="pix"> PIX
+                            <i class="fas fa-check-circle"></i>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment-method" value="boleto"> Boleto Bancário
+                            <i class="fas fa-check-circle"></i>
+                        </label>
+                    </div>
+
+                    <form class="card-details-form">
+                        <input type="text" placeholder="Número do Cartão" required>
+                        <input type="text" placeholder="Nome Impresso no Cartão" required>
+                        <div class="form-row">
+                            <input type="text" placeholder="Validade (MM/AA)" required>
+                            <input type="text" placeholder="CVV" required>
+                        </div>
+                        <select>
+                            <option value="">Selecione as Parcelas</option>
+                            <option value="1">1x (Sem juros)</option>
+                            <option value="10">10x (Sem juros)</option>
+                            <option value="12">12x (Sem juros)</option>
+                        </select>
+                    </form>
+                </div>
+            </section>
+            
+            <aside class="checkout-summary-final">
+                <h2>Seu Pedido</h2>
+                
+                <div class="order-item-list">
+                    </div>
+
+                <div class="summary-line">
+                    <span>Subtotal:</span>
+                    <span class="summary-value">R$ 0,00</span>
+                </div>
+                
+                <div class="summary-line shipping-summary">
+                    <span>Frete:</span>
+                    <span class="summary-value">R$ 0,00</span>
+                </div>
+                
+                <div class="summary-total-final">
+                    <span>Total a Pagar:</span>
+                    <span class="final-price">R$ 0,00</span>
+                </div>
+                
+                <button class="btn-finalize-purchase">
+                    <i class="fas fa-lock"></i> CONFIRMAR E PAGAR
+                </button>
+
+                <div class="secure-info-checkout">
+                    Sua compra é processada em um ambiente 100% seguro.
+                </div>
+            </aside>
+            
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>Desenvolvido por BigTech © 2025</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
