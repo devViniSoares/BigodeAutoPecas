@@ -3,55 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro - BIGODE AUTOPEÇAS</title>
-    <link rel="stylesheet" href="style.css"> 
+    <title>Criar Conta - BIGODE AUTOPEÇAS</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Mesmo estilo do Login para manter consistência */
+        body.auth-body {
+            background-color: #212121;
+            background-image: radial-gradient(circle at center, #36393D 0%, #212121 100%);
+            min-height: 100vh; /* Garante que cubra a tela toda mesmo se rolar */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0;
+        }
+        .auth-card {
+            background-color: rgba(54, 57, 61, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+    </style>
 </head>
 <body class="auth-body">
-    <header class="mobile-auth-header">
-        <a href="login.html" class="back-button"><i class="fas fa-arrow-left"></i></a>
-        <div class="logo-area">
-            <img src="../bigodeAutoPeca/src/img/logobranco.png" alt="BIGODE AUTOPEÇAS" class="logo-mini">
-        </div>
-    </header>
 
-    <div class="auth-container">
-        
-        <h2>Criar Conta</h2>
+    <div class="position-absolute top-0 start-0 p-4">
+        <a href="login.html" class="text-white fs-3 back-button"><i class="fas fa-arrow-left"></i></a>
+    </div>
 
-        <form class="cadastro-form"> <div class="fields-row">
-                <div class="form-group half-width">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required class="input-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6"> <div class="text-center mb-4">
+                    <img src="src/img/logobranco.png" alt="BIGODE" class="img-fluid" style="height: 80px;">
                 </div>
-                
-                <div class="form-group half-width">
-                    <label for="senha">Senha</label>
-                    <input type="password" id="senha" name="senha" required class="input-light">
+
+                <div class="auth-card p-4 p-md-5">
+                    <h2 class="text-center text-danger oswald-font mb-4 text-uppercase fw-bold">Criar Conta</h2>
+                    
+                    <form class="cadastro-form">
+                        
+                        <div class="row g-3 mb-3">
+                            <div class="col-12 col-md-6">
+                                <label for="email" class="form-label text-light fw-bold small">EMAIL</label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light border-0"><i class="fas fa-envelope"></i></span>
+                                    <input type="email" class="form-control" id="email" name="email" required placeholder="seu@email.com">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="senha" class="form-label text-light fw-bold small">SENHA</label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light border-0"><i class="fas fa-lock"></i></span>
+                                    <input type="password" class="form-control" id="senha" name="senha" required placeholder="******">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row g-3 mb-4">
+                            <div class="col-12 col-md-6">
+                                <label for="celular" class="form-label text-light fw-bold small">CELULAR</label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light border-0"><i class="fas fa-mobile-alt"></i></span>
+                                    <input type="tel" class="form-control" id="celular" name="celular" required placeholder="(00) 00000-0000">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="cpf" class="form-label text-light fw-bold small">CPF</label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light border-0"><i class="fas fa-id-card"></i></span>
+                                    <input type="text" class="form-control" id="cpf" name="cpf" required placeholder="000.000.000-00">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-red w-100 py-2 fw-bold fs-5">CADASTRAR</button>
+                    </form>
+                    
+                    <div class="text-center mt-4">
+                        <span class="text-secondary small">Já tem uma conta?</span>
+                        <a href="login.html" class="text-danger fw-bold text-decoration-none ms-1">Faça login</a>
+                    </div>
                 </div>
+
             </div>
-
-            <div class="fields-row">
-                <div class="form-group half-width">
-                    <label for="celular">Celular</label>
-                    <input type="tel" id="celular" name="celular" required class="input-light">
-                </div>
-                
-                <div class="form-group half-width">
-                    <label for="cpf">CPF</label>
-                    <input type="text" id="cpf" name="cpf" required class="input-light">
-                </div>
-            </div>
-            
-            <button type="submit" class="btn-primary-auth">Cadastrar</button>
-        </form>
-
-        <div class="auth-links">
-            <span>Já tem uma conta?</span>
-            <a href="login.html">Faça login</a>
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

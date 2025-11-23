@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'T300-HP-01', 
             name: 'Turbo Compressor T300 Alta performance', 
             price: 3890.00, 
-            img: '../bigodeAutoPeca/src/img/turbo.png',
+            img: 'src/img/turbo.png',
             brand: 'ForjadoParts',
             description: 'O Turbo Compressor T300 é a escolha definitiva para quem busca performance extrema. Com rotor billet e carcaça de aço inoxidável, garante durabilidade e aumento significativo de potência.',
             specs: [
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'PA-CE-04', 
             name: 'Pastilha de Freio Cerâmica XPT', 
             price: 450.90, 
-            img: '../bigodeAutoPeca/src/img/pastilha.png',
+            img: 'src/img/pastilha.png',
             brand: 'StopTech',
             description: 'Pastilhas de freio de cerâmica para alta performance, proporcionando frenagens mais eficientes e durabilidade superior, com menos poeira e ruído.',
             specs: [
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'AM-ES-ADJ', 
             name: 'Amortecedor Esportivo Ajustável', 
             price: 980.00, 
-            img: '../bigodeAutoPeca/src/img/amortecedor.png',
+            img: 'src/img/amortecedor.png',
             brand: 'ProRace',
             description: 'Amortecedores esportivos com regulagem de altura e rigidez, ideais para personalizar a suspensão do seu carro para pista ou rua.',
             specs: [
@@ -51,8 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'OL-5W40-PERF', 
             name: 'Óleo Sintético 5W40 Performance', 
             price: 89.90, 
-            img: '../bigodeAutoPeca/src/img/oleo.png',
-            brand: 'Motul', // Ou Shell, Castrol, etc.
+            img: 'src/img/oleo.png',
+            brand: 'Motul', 
             description: 'Óleo 100% sintético de alta performance 5W40, projetado para motores modernos. Oferece proteção superior contra o desgaste e otimiza a performance em condições extremas.',
             specs: [
                 { label: 'Tipo', value: 'Sintético' },
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'FA-LED-PROJ', 
             name: 'Farol LED Projetor Tuning XENON', 
             price: 1250.00, 
-            img: '../bigodeAutoPeca/src/img/farol.png',
+            img: 'src/img/farol.png',
             brand: 'LightForce',
             description: 'Farol LED com projetor e efeito Tuning XENON, proporciona iluminação superior e um visual agressivo para seu veículo.',
             specs: [
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'VE-IRI-COMP', 
             name: 'Velas de Ignição Iridium Competição', 
             price: 210.00, 
-            img: '../bigodeAutoPeca/src/img/vela.png',
+            img: 'src/img/vela.png',
             brand: 'NGK',
             description: 'Velas de ignição de Iridium para competição e alta performance. Melhoram a partida, a resposta do acelerador e a queima de combustível.',
             specs: [
@@ -205,8 +205,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (userActions) {
                 const cartLink = document.createElement('a');
                 cartLink.href = 'carrinho.html';
-                cartLink.className = 'cart-link';
-                cartLink.innerHTML = `<i class="fas fa-shopping-cart"></i><span class="cart-icon-bubble"></span>`;
+                // Adiciona classes do Bootstrap para manter o estilo
+                cartLink.className = 'cart-link text-light position-relative text-decoration-none'; 
+                cartLink.innerHTML = `<i class="fas fa-shopping-cart fs-5"></i><span class="cart-icon-bubble"></span>`;
                 userActions.prepend(cartLink);
                 cartIconBubble = userActions.querySelector('.cart-icon-bubble');
             }
@@ -248,63 +249,80 @@ document.addEventListener('DOMContentLoaded', () => {
         alert(`'${productData.name}' foi adicionado ao carrinho!`);
     };
 
-    // --- 4. RENDERIZAÇÃO DA PÁGINA DO CARRINHO (carrinho.html) ---
+    // --- 4. RENDERIZAÇÃO DA PÁGINA DO CARRINHO (ATUALIZADA PARA BOOTSTRAP) ---
 
     const renderCartPage = () => {
-        const cartItemsContainer = document.querySelector('.cart-items-section');
+        // Agora buscamos pelo ID novo do container
+        const cartItemsContainer = document.getElementById('cart-items-container');
         const summaryContainer = document.querySelector('.cart-summary');
         
         if (!cartItemsContainer || !summaryContainer) return;
 
-        cartItemsContainer.querySelectorAll('.cart-item').forEach(item => item.remove());
-        const cartEmptyMessage = cartItemsContainer.querySelector('.cart-empty-message');
-        if (cartEmptyMessage) cartEmptyMessage.remove();
-
+        cartItemsContainer.innerHTML = ''; // Limpa tudo
+        
         const cart = getCart();
         let subtotal = 0;
 
         if (cart.length === 0) {
-            cartItemsContainer.querySelector('.cart-table-header').insertAdjacentHTML('afterend', '<p class="cart-empty-message">Seu carrinho está vazio.</p>');
+            cartItemsContainer.innerHTML = '<p class="text-center text-secondary py-5">Seu carrinho está vazio.</p>';
         }
 
         cart.forEach(item => {
             const itemTotal = item.price * item.qty;
             subtotal += itemTotal;
             
+            // HTML NOVO COM CLASSES BOOTSTRAP
             const itemHtml = `
-                <div class="cart-item" data-product-id="${item.id}">
-                    <div class="item-product-info">
+                <div class="cart-item row align-items-center py-3 border-bottom" data-product-id="${item.id}">
+                    <div class="col-12 col-md-6 d-flex align-items-center mb-3 mb-md-0">
                         <a href="detalhe-produto.html?id=${item.id}">
-                            <img src="${item.img}" alt="${item.name}">
+                            <img src="${item.img}" alt="${item.name}" class="img-fluid rounded border p-1" style="width: 80px; height: 80px; object-fit: contain;">
                         </a>
-                        <div>
-                            <p class="item-name">${item.name}</p>
-                            <p class="item-sku">Ref: ${item.id}</p>
-                            <button class="btn-remove-item"><i class="fas fa-trash-alt"></i> Remover</button>
+                        <div class="ms-3">
+                            <h6 class="mb-0 fw-bold"><a href="detalhe-produto.html?id=${item.id}" class="text-decoration-none text-dark">${item.name}</a></h6>
+                            <small class="text-secondary">Ref: ${item.id}</small>
+                            <div class="d-md-none mt-2">
+                                <button class="btn btn-sm text-danger p-0 btn-remove-item"><i class="fas fa-trash-alt"></i> Remover</button>
+                            </div>
                         </div>
                     </div>
-                    <div class="item-quantity">
-                        <input type="number" value="${item.qty}" min="1" class="qty-input">
+
+                    <div class="col-6 col-md-2 text-center">
+                        <label class="d-md-none small text-secondary d-block">Qtd:</label>
+                        <input type="number" value="${item.qty}" min="1" class="form-control form-control-sm text-center mx-auto qty-input" style="max-width: 70px;">
                     </div>
-                    <div class="item-price">
-                        <span>R$ ${item.price.toFixed(2).replace('.', ',')}</span>
+
+                    <div class="col-6 col-md-2 text-end text-md-center">
+                        <label class="d-md-none small text-secondary d-block">Unit:</label>
+                        <span class="text-secondary">R$ ${item.price.toFixed(2).replace('.', ',')}</span>
                     </div>
-                    <div class="item-total">
-                        <span class="total-value">R$ ${itemTotal.toFixed(2).replace('.', ',')}</span>
+
+                    <div class="col-12 col-md-2 text-end">
+                        <div class="d-flex justify-content-between d-md-block align-items-center mt-2 mt-md-0">
+                            <span class="d-md-none fw-bold">Total:</span>
+                            <span class="fw-bold text-dark">R$ ${itemTotal.toFixed(2).replace('.', ',')}</span>
+                        </div>
+                        <button class="btn btn-sm text-danger p-0 mt-1 btn-remove-item d-none d-md-inline-block"><i class="fas fa-trash-alt"></i></button>
                     </div>
                 </div>
             `;
-            cartItemsContainer.querySelector('.btn-continue-shopping').insertAdjacentHTML('beforebegin', itemHtml);
+            cartItemsContainer.insertAdjacentHTML('beforeend', itemHtml);
         });
 
         const shipping = subtotal > 0 ? 55.00 : 0; 
         const total = subtotal + shipping;
 
-        summaryContainer.querySelector('.summary-line .summary-value').textContent = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
-        summaryContainer.querySelector('.summary-shipping .summary-value').textContent = `R$ ${shipping.toFixed(2).replace('.', ',')}`;
-        summaryContainer.querySelector('.summary-total-final .final-price').textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+        // Atualiza o resumo (usando seletores mais genéricos para evitar erro)
+        const subtotalEl = document.getElementById('cart-subtotal');
+        const shippingEl = document.getElementById('cart-shipping');
+        const totalEl = document.getElementById('cart-total');
 
-        document.querySelectorAll('.btn-remove-item').forEach(button => {
+        if(subtotalEl) subtotalEl.textContent = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
+        if(shippingEl) shippingEl.textContent = `R$ ${shipping.toFixed(2).replace('.', ',')}`;
+        if(totalEl) totalEl.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+
+        // Event Listeners (Remover e Mudar Qtd)
+        cartItemsContainer.querySelectorAll('.btn-remove-item').forEach(button => {
             button.addEventListener('click', (e) => {
                 const productId = e.target.closest('.cart-item').dataset.productId;
                 const cart = getCart();
@@ -314,7 +332,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        document.querySelectorAll('.qty-input').forEach(input => {
+        cartItemsContainer.querySelectorAll('.qty-input').forEach(input => {
             input.addEventListener('change', (e) => {
                 const productId = e.target.closest('.cart-item').dataset.productId;
                 const newQuantity = parseInt(e.target.value);
@@ -349,134 +367,109 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let subtotal = 0;
         const itemListContainer = summaryContainer.querySelector('.order-item-list');
-        itemListContainer.innerHTML = ''; 
+        if(itemListContainer) {
+            itemListContainer.innerHTML = ''; 
 
-        cart.forEach(item => {
-            subtotal += item.price * item.qty;
-            const itemHtml = `
-                <div class="order-item">
-                    <span class="item-name-summary">${item.name} (x${item.qty})</span>
-                    <span class="item-price-summary">R$ ${(item.price * item.qty).toFixed(2).replace('.', ',')}</span>
-                </div>
-            `;
-            itemListContainer.insertAdjacentHTML('beforeend', itemHtml);
-        });
+            cart.forEach(item => {
+                subtotal += item.price * item.qty;
+                // HTML ATUALIZADO
+                const itemHtml = `
+                    <div class="order-item d-flex justify-content-between mb-2 small text-secondary">
+                        <span>${item.name} (x${item.qty})</span>
+                        <span class="fw-bold">R$ ${(item.price * item.qty).toFixed(2).replace('.', ',')}</span>
+                    </div>
+                `;
+                itemListContainer.insertAdjacentHTML('beforeend', itemHtml);
+            });
+        }
         
         const shipping = subtotal > 0 ? 55.00 : 0;
         const total = subtotal + shipping;
         
-        summaryContainer.querySelector('.summary-line .summary-value').textContent = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
-        summaryContainer.querySelector('.summary-line.shipping-summary .summary-value').textContent = `R$ ${shipping.toFixed(2).replace('.', ',')}`;
-        summaryContainer.querySelector('.summary-total-final .final-price').textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+        // Atualiza valores do checkout
+        const summaryValues = summaryContainer.querySelectorAll('.summary-value');
+        if(summaryValues.length >= 2) {
+             summaryValues[0].textContent = `R$ ${subtotal.toFixed(2).replace('.', ',')}`; // Subtotal
+             summaryValues[1].textContent = `R$ ${shipping.toFixed(2).replace('.', ',')}`; // Frete
+        }
+        const finalPrice = summaryContainer.querySelector('.final-price');
+        if(finalPrice) finalPrice.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
     };
 
-    // --- NOVO: FUNÇÃO PARA RENDERIZAR A PÁGINA DE DETALHES DO PRODUTO (detalhe-produto.html) ---
+    // --- FUNÇÃO PARA DETALHES DO PRODUTO (Mantida) ---
     const renderProductDetailPage = () => {
         const urlParams = new URLSearchParams(window.location.search);
-        const productId = urlParams.get('id'); // Pega o 'id' da URL (ex: ?id=T300-HP-01)
+        const productId = urlParams.get('id'); 
         
         const productInfoContainer = document.querySelector('.product-info');
-        if (!productId || !productInfoContainer) {
-            // Se não tiver ID na URL ou não estiver na página de detalhes, não faz nada
-            return; 
-        }
+        if (!productId || !productInfoContainer) return; 
 
         const product = PRODUCTS_DATA[productId];
 
         if (!product) {
-            // Produto não encontrado, redireciona ou mostra mensagem de erro
             alert('Produto não encontrado!');
             navigateTo('produtos.html');
             return;
         }
 
-        // 1. Atualizar o Título da Página (no <title> do HTML)
         document.title = `${product.name} - BIGODE AUTOPEÇAS`;
 
-        // 2. Atualizar o Breadcrumb
         const breadcrumbProductName = document.getElementById('breadcrumb-product-name');
-        if (breadcrumbProductName) {
-            breadcrumbProductName.textContent = product.name;
-        }
+        if (breadcrumbProductName) breadcrumbProductName.textContent = product.name;
 
-        // 3. Atualizar o data-product-id do contêiner principal
         productInfoContainer.dataset.productId = product.id;
 
-        // 4. Imagem Principal
         const productMainImage = document.getElementById('product-main-image');
         if (productMainImage) {
             productMainImage.src = product.img;
             productMainImage.alt = product.name;
         }
 
-        // 5. Título do Produto (h1)
         const productTitle = document.getElementById('product-title');
-        if (productTitle) {
-            productTitle.textContent = product.name;
-        }
+        if (productTitle) productTitle.textContent = product.name;
 
-        // 6. SKU e Marca
         const productSku = document.getElementById('product-sku');
-        if (productSku) {
-            productSku.textContent = product.id;
-        }
+        if (productSku) productSku.textContent = product.id;
+        
         const productBrand = document.getElementById('product-brand');
-        if (productBrand && product.brand) {
-            productBrand.textContent = product.brand;
-        }
+        if (productBrand && product.brand) productBrand.textContent = product.brand;
 
-        // 7. Preço
         const productPrice = document.getElementById('product-price');
-        if (productPrice) {
-            productPrice.textContent = product.price.toFixed(2).replace('.', ',');
-        }
+        if (productPrice) productPrice.textContent = product.price.toFixed(2).replace('.', ',');
 
-        // 8. Preço da Parcela (Exemplo simples: 12x)
         const productInstallmentPrice = document.getElementById('product-installment-price');
-        if (productInstallmentPrice) {
-            productInstallmentPrice.textContent = (product.price / 12).toFixed(2).replace('.', ',');
-        }
+        if (productInstallmentPrice) productInstallmentPrice.textContent = (product.price / 12).toFixed(2).replace('.', ',');
 
-        // 9. Descrição
         const productDescription = document.getElementById('product-description');
-        if (productDescription) {
-            productDescription.textContent = product.description || 'Nenhuma descrição disponível.';
-        }
+        if (productDescription) productDescription.textContent = product.description || 'Nenhuma descrição disponível.';
 
-        // 10. Especificações (tabela)
         const productSpecsTable = document.getElementById('product-specs-table');
         if (productSpecsTable && product.specs) {
-            productSpecsTable.innerHTML = ''; // Limpa antes de adicionar
+            productSpecsTable.innerHTML = ''; 
             product.specs.forEach(spec => {
                 const row = document.createElement('tr');
-                row.innerHTML = `<th>${spec.label}</th><td>${spec.value}</td>`;
+                row.innerHTML = `<th scope="row" class="w-25 text-secondary">${spec.label}</th><td>${spec.value}</td>`;
                 productSpecsTable.appendChild(row);
             });
         }
 
-        // 11. Compatibilidade
         const productCompatibility = document.getElementById('product-compatibility');
-        if (productCompatibility) {
-            productCompatibility.textContent = product.compatibility || 'Informações de compatibilidade não disponíveis.';
-        }
+        if (productCompatibility) productCompatibility.textContent = product.compatibility || 'Informações não disponíveis.';
     };
 
 
     // --- 6. INICIALIZAÇÃO E EVENT LISTENERS GERAIS ---
 
-    // Ícone de Usuário (Modificado para Logout)
     const userIcon = document.querySelector('.user-actions a i.fa-user-circle');
     if (userIcon) {
         userIcon.parentElement.addEventListener('click', handleUserIconClick);
     }
     
-    // Formulário de Login (na página login.html)
     const loginForm = document.querySelector('.login-form');
     if (loginForm) {
         loginForm.addEventListener('submit', handleLogin);
     }
 
-    // Formulário de Cadastro (na página cadastro.html)
     const registrationForm = document.querySelector('.cadastro-form');
     if (registrationForm) {
         registrationForm.addEventListener('submit', handleRegistration);
@@ -490,7 +483,6 @@ document.addEventListener('DOMContentLoaded', () => {
             let productContainer = e.target.closest('[data-product-id]');
             
             if (!productContainer) {
-                // Tenta encontrar o ID no contêiner de detalhes do produto
                 productContainer = document.querySelector('.product-info[data-product-id]');
             }
 
@@ -510,7 +502,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Links de Navegação
     const backButton = document.querySelector('.back-button');
     if (backButton) {
         backButton.addEventListener('click', (e) => {
@@ -534,8 +525,6 @@ document.addEventListener('DOMContentLoaded', () => {
             navigateTo('login.html'); 
         });
     }
-
-   
 
     // Abas de Pagamento
     document.querySelectorAll('.payment-option').forEach(option => {
@@ -562,13 +551,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 7. EXECUÇÃO DAS FUNÇÕES DE RENDERIZAÇÃO ---
+    // --- 7. EXECUÇÃO ---
     
     updateCartIcon(); 
     renderCartPage(); 
     renderCheckoutPage(); 
 
-    // CHAMA A NOVA FUNÇÃO SE ESTIVER NA PÁGINA DE DETALHES
     if (window.location.pathname.includes('detalhe-produto.html')) {
         renderProductDetailPage();
     }

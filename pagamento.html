@@ -3,126 +3,215 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout - BIGODE AUTOPEÇAS</title>
+    <title>Finalizar Compra - BIGODE AUTOPEÇAS</title>
     
-    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="bg-light">
     
-    <header class="main-header checkout-header">
-        <div class="main-content-row">
+    <header class="main-header checkout-header bg-dark py-3">
+        <div class="container text-center">
             <div class="checkout-logo">
                 <a href="index.html">
-                    <img src="../bigodeAutoPeca/src/img/logobranco.png" alt="BIGODE"> 
+                    <img src="../bigodeAutoPeca/src/img/logobranco.png" alt="BIGODE" class="img-fluid" style="max-height: 80px;"> 
                 </a>
             </div>
         </div>
     </header>
 
-    <main class="checkout-page-main">
-        <div class="page-title-bar">
-            <h1>FINALIZAR COMPRA</h1>
+    <main class="py-5" style="background-color: var(--color-light-bg-products);">
+        
+        <div class="container mb-4">
+            <h1 class="section-title text-dark border-bottom border-danger pb-2">FINALIZAR COMPRA</h1>
         </div>
 
-        <div class="checkout-container">
-            
-            <section class="checkout-form-area">
+        <div class="container checkout-container">
+            <div class="row g-5">
                 
-                <div class="checkout-step">
-                    <h2><i class="fas fa-map-marker-alt"></i> 1. Endereço de Entrega</h2>
-                    <form class="address-form">
-                        <div class="form-row">
-                            <input type="text" placeholder="CEP" required>
-                            <input type="text" placeholder="Rua / Avenida" required class="full-width">
-                        </div>
-                        <div class="form-row">
-                            <input type="text" placeholder="Número" required>
-                            <input type="text" placeholder="Complemento (Opcional)">
-                        </div>
-                        <div class="form-row">
-                            <input type="text" placeholder="Bairro" required>
-                            <input type="text" placeholder="Cidade" required>
-                        </div>
-                        <input type="text" placeholder="Estado (UF)" required>
-                    </form>
-                </div>
-                
-                <div class="checkout-step payment-step">
-                    <h2><i class="fas fa-credit-card"></i> 2. Método de Pagamento</h2>
+                <div class="col-12 col-lg-8 checkout-form-area">
                     
-                    <div class="payment-options">
-                        <label class="payment-option active-option">
-                            <input type="radio" name="payment-method" value="credit-card" checked> Cartão de Crédito
-                            <i class="fas fa-check-circle"></i>
-                        </label>
-                        <label class="payment-option">
-                            <input type="radio" name="payment-method" value="pix"> PIX
-                            <i class="fas fa-check-circle"></i>
-                        </label>
-                        <label class="payment-option">
-                            <input type="radio" name="payment-method" value="boleto"> Boleto Bancário
-                            <i class="fas fa-check-circle"></i>
-                        </label>
-                    </div>
+                    <div class="checkout-step bg-white p-4 rounded shadow-sm mb-4">
+                        <h2 class="h5 oswald-font text-danger border-bottom pb-2 mb-3">
+                            <i class="fas fa-map-marker-alt me-2"></i> 1. Endereço de Entrega
+                        </h2>
+                        
+                        <form class="address-form row g-3">
+                            <div class="col-12 col-md-4">
+                                <label class="form-label small fw-bold text-secondary">CEP</label>
+                                <input type="text" class="form-control" placeholder="00000-000" required>
+                            </div>
+                            <div class="col-12 col-md-8">
+                                <label class="form-label small fw-bold text-secondary">Rua / Avenida</label>
+                                <input type="text" class="form-control" placeholder="Ex: Av. Brasil" required>
+                            </div>
+                            
+                            <div class="col-12 col-md-4">
+                                <label class="form-label small fw-bold text-secondary">Número</label>
+                                <input type="text" class="form-control" placeholder="123" required>
+                            </div>
+                            <div class="col-12 col-md-8">
+                                <label class="form-label small fw-bold text-secondary">Complemento (Opcional)</label>
+                                <input type="text" class="form-control" placeholder="Apto, Bloco...">
+                            </div>
 
-                    <form class="card-details-form">
-                        <input type="text" placeholder="Número do Cartão" required>
-                        <input type="text" placeholder="Nome Impresso no Cartão" required>
-                        <div class="form-row">
-                            <input type="text" placeholder="Validade (MM/AA)" required>
-                            <input type="text" placeholder="CVV" required>
+                            <div class="col-12 col-md-5">
+                                <label class="form-label small fw-bold text-secondary">Bairro</label>
+                                <input type="text" class="form-control" required>
+                            </div>
+                            <div class="col-12 col-md-5">
+                                <label class="form-label small fw-bold text-secondary">Cidade</label>
+                                <input type="text" class="form-control" required>
+                            </div>
+                            <div class="col-12 col-md-2">
+                                <label class="form-label small fw-bold text-secondary">UF</label>
+                                <input type="text" class="form-control" placeholder="SP" required>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="checkout-step payment-step bg-white p-4 rounded shadow-sm">
+                        <h2 class="h5 oswald-font text-danger border-bottom pb-2 mb-3">
+                            <i class="fas fa-credit-card me-2"></i> 2. Método de Pagamento
+                        </h2>
+                        
+                        <div class="payment-options row g-3 mb-4">
+                            <div class="col-12 col-md-4">
+                                <label class="payment-option active-option w-100 border rounded p-3 text-center cursor-pointer position-relative">
+                                    <input type="radio" name="payment-method" value="credit-card" checked class="d-none"> 
+                                    <i class="fas fa-credit-card fs-4 mb-2 d-block text-secondary"></i>
+                                    Cartão de Crédito
+                                    <i class="fas fa-check-circle text-danger position-absolute top-0 end-0 m-2 check-icon" style="display: block;"></i>
+                                </label>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <label class="payment-option w-100 border rounded p-3 text-center cursor-pointer position-relative">
+                                    <input type="radio" name="payment-method" value="pix" class="d-none"> 
+                                    <i class="fab fa-pix fs-4 mb-2 d-block text-secondary"></i>
+                                    PIX
+                                    <i class="fas fa-check-circle text-danger position-absolute top-0 end-0 m-2 check-icon" style="display: none;"></i>
+                                </label>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <label class="payment-option w-100 border rounded p-3 text-center cursor-pointer position-relative">
+                                    <input type="radio" name="payment-method" value="boleto" class="d-none"> 
+                                    <i class="fas fa-barcode fs-4 mb-2 d-block text-secondary"></i>
+                                    Boleto
+                                    <i class="fas fa-check-circle text-danger position-absolute top-0 end-0 m-2 check-icon" style="display: none;"></i>
+                                </label>
+                            </div>
                         </div>
-                        <select>
-                            <option value="">Selecione as Parcelas</option>
-                            <option value="1">1x (Sem juros)</option>
-                            <option value="10">10x (Sem juros)</option>
-                            <option value="12">12x (Sem juros)</option>
-                        </select>
-                    </form>
-                </div>
-            </section>
-            
-            <aside class="checkout-summary-final">
-                <h2>Seu Pedido</h2>
-                
-                <div class="order-item-list">
+
+                        <form class="card-details-form p-3 border rounded bg-light">
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold text-secondary">Número do Cartão</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="far fa-credit-card"></i></span>
+                                    <input type="text" class="form-control" placeholder="0000 0000 0000 0000" required>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold text-secondary">Nome Impresso no Cartão</label>
+                                <input type="text" class="form-control" placeholder="COMO NO CARTÃO" required>
+                            </div>
+                            
+                            <div class="row g-3">
+                                <div class="col-6">
+                                    <label class="form-label small fw-bold text-secondary">Validade</label>
+                                    <input type="text" class="form-control" placeholder="MM/AA" required>
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label small fw-bold text-secondary">CVV</label>
+                                    <input type="text" class="form-control" placeholder="123" required>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-3">
+                                <label class="form-label small fw-bold text-secondary">Parcelamento</label>
+                                <select class="form-select">
+                                    <option value="">Selecione as Parcelas</option>
+                                    <option value="1">1x (Sem juros)</option>
+                                    <option value="10">10x (Sem juros)</option>
+                                    <option value="12">12x (Sem juros)</option>
+                                </select>
+                            </div>
+                        </form>
                     </div>
+                </div>
+                
+                <div class="col-12 col-lg-4">
+                    <aside class="checkout-summary-final bg-dark text-white p-4 rounded shadow position-sticky" style="top: 20px;">
+                        <h2 class="h4 oswald-font text-danger border-bottom border-secondary pb-2 mb-3">Seu Pedido</h2>
+                        
+                        <div class="order-item-list mb-3 border-bottom border-secondary pb-3" style="max-height: 200px; overflow-y: auto;">
+                            </div>
 
-                <div class="summary-line">
-                    <span>Subtotal:</span>
-                    <span class="summary-value">R$ 0,00</span>
-                </div>
-                
-                <div class="summary-line shipping-summary">
-                    <span>Frete:</span>
-                    <span class="summary-value">R$ 0,00</span>
-                </div>
-                
-                <div class="summary-total-final">
-                    <span>Total a Pagar:</span>
-                    <span class="final-price">R$ 0,00</span>
-                </div>
-                
-                <button class="btn-finalize-purchase">
-                    <i class="fas fa-lock"></i> CONFIRMAR E PAGAR
-                </button>
+                        <div class="d-flex justify-content-between mb-2 summary-line">
+                            <span class="text-white-50">Subtotal:</span>
+                            <span class="fw-bold summary-value">R$ 0,00</span>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between mb-3 summary-line shipping-summary border-bottom border-secondary pb-3">
+                            <span class="text-white-50">Frete:</span>
+                            <span class="fw-bold summary-value">R$ 0,00</span>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between align-items-center mb-4 summary-total-final">
+                            <span class="fs-5 fw-bold">Total a Pagar:</span>
+                            <span class="fs-3 fw-bold text-danger final-price">R$ 0,00</span>
+                        </div>
+                        
+                        <button class="btn btn-red w-100 py-3 fw-bold fs-5 btn-finalize-purchase shadow">
+                            <i class="fas fa-lock me-2"></i> CONFIRMAR E PAGAR
+                        </button>
 
-                <div class="secure-info-checkout">
-                    Sua compra é processada em um ambiente 100% seguro.
+                        <div class="text-center text-white-50 small mt-3 secure-info-checkout">
+                            <i class="fas fa-shield-alt me-1"></i> Ambiente 100% seguro.
+                        </div>
+                    </aside>
                 </div>
-            </aside>
-            
+                
+            </div>
         </div>
     </main>
 
-    <footer class="main-footer">
-        <div class="footer-content">
-            <p>Desenvolvido por BigTech © 2025</p>
+    <footer class="main-footer bg-dark text-center py-4 mt-auto">
+        <div class="container text-white-50">
+            <p class="m-0">Desenvolvido por BigTech © 2025</p>
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
+    
+    <script>
+        document.querySelectorAll('.payment-option').forEach(option => {
+            option.addEventListener('click', () => {
+                // Remove estilos ativos de todos
+                document.querySelectorAll('.payment-option').forEach(opt => {
+                    opt.classList.remove('active-option', 'border-danger', 'bg-light');
+                    opt.querySelector('.check-icon').style.display = 'none';
+                    // Garante que o radio button esteja desmarcado visualmente nos outros
+                    opt.querySelector('input').checked = false;
+                });
+                
+                // Adiciona estilos ao clicado
+                option.classList.add('active-option', 'border-danger', 'bg-light');
+                option.querySelector('.check-icon').style.display = 'block';
+                const radioInput = option.querySelector('input');
+                radioInput.checked = true;
+
+                // Mostra/Esconde formulário do cartão
+                const isCreditCard = radioInput.value === 'credit-card';
+                const cardForm = document.querySelector('.card-details-form');
+                if (cardForm) {
+                    cardForm.style.display = isCreditCard ? 'block' : 'none';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
